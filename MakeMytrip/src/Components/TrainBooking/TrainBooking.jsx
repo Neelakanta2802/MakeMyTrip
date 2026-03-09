@@ -1,136 +1,98 @@
-// import Radio from "@mui/material/Radio";
-// import RadioGroup from "@mui/material/RadioGroup";
-// import FormControlLabel from "@mui/material/FormControlLabel";
-// import FormControl from "@mui/material/FormControl";
-// import FormLabel from "@mui/material/FormLabel";
-// import "./TrainBooking.css";
-// import { useState,useEffect } from "react";
-// import { Routes,useNavigate } from "react-router";
-
-// export default function TrainBooking() {
-//   const [selectTrainOption, setSelectTrainOption] = useState();
-// const navigate = useNavigate()
-
-
-//   return (
-//     <>
-//       <div className="radio-group">
-//         <FormControl>
-//           <RadioGroup
-//             row
-//             aria-labelledby="demo-row-radio-buttons-group-label"
-//             name="row-radio-buttons-group"
-//             value={selectTrainOption}
-//             >
-//             <FormControlLabel
-//               value="BookTrainTickets"
-//               control={<Radio />}
-//               onClick={navigate('trainbook')}
-//               label="Book Train Tickets"
-//             />
-//             <FormControlLabel
-//               value="CheckPNRStatus"
-//               control={<Radio />}
-//               label="Check PNR Status"
-//             />
-//             <FormControlLabel
-//               value="LiveTrainStatus"
-//               control={<Radio />}
-//               label="Live Train Status"
-//             />
-//           </RadioGroup>
-//         </FormControl>
-//         <div className="irctc-authorized">
-//           <h4>Train Ticket Booking</h4>
-//           <p>IRCTC Authorized e-ticketing</p>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import "./TrainBooking.css";
 import { useState } from "react";
+import * as React from "react";
+import {
+  ListItemButton,
+  FormControlLabel,
+  FormControl,
+  Grid,
+  List,
+  Radio,
+  RadioGroup,
+  FormLabel,
+  ListItemIcon,
+  ListItemText,
+  Checkbox,
+  Button,
+  Paper,
+} from "@mui/material";
 
-export default function TrainBooking() {
-
-  const [option, setOption] = useState("BookTrainTickets");
-
-  const handleChange = (event) => {
-    setOption(event.target.value);
+export default function RowRadioButtonsGroup() {
+  const [selectOption, setSelectOption] = useState("BookTrainTickets");
+  
+  const handleOption = (e) => {
+    setSelectOption(e.target.value);
   };
+
+  const radioButtonOptions = [
+    {
+      value: "BookTrainTickets",
+      label: "Book Train Tickets",
+      href: "/trainbook",
+    },
+    {
+      value: "CheckPnrStatus",
+      label: "Check PNR Status",
+      href: "/pnrstatus",
+    },
+    {
+      value: "LiveTrainStatus",
+      label: "Live Train Status",
+      href: "/livetrainstatus",
+    },
+  ];
+
+  function handleOptionLayout() {
+    if (selectOption === "BookTrainTickets") {
+      return (
+        <>
+          <div>Book Tarin Tickets coming</div>
+        </>
+      );
+    }
+    if (selectOption === "CheckPnrStatus") {
+      return (
+        <>
+          <div>Check PNR Status coming</div>
+        </>
+      );
+    }
+    if (selectOption === "LiveTrainStatus") {
+      return (
+        <>
+          <div>Live Train Status coming</div>
+        </>
+      );
+    }
+  }
+
+  function displayRadioOptions() {
+    return radioButtonOptions.map(function (data) {
+      return (
+        <>
+          <FormControlLabel
+            value={data.value}
+            control={<Radio />}
+            label={data.label}
+          />
+        </>
+      );
+    });
+  }
 
   return (
     <>
-      <div className="radio-group">
-        <FormControl>
-          <RadioGroup
-            row
-            value={option}
-            onChange={handleChange}
-            name="row-radio-buttons-group"
-          >
-            <FormControlLabel
-              value="BookTrainTickets"
-              control={<Radio />}
-              label="Book Train Tickets"
-            />
-
-            <FormControlLabel
-              value="CheckPNRStatus"
-              control={<Radio />}
-              label="Check PNR Status"
-            />
-
-            <FormControlLabel
-              value="LiveTrainStatus"
-              control={<Radio />}
-              label="Live Train Status"
-            />
-          </RadioGroup>
-        </FormControl>
-
-        <div className="irctc-authorized">
-          <h4>Train Ticket Booking</h4>
-          <p>IRCTC Authorized e-ticketing</p>
-        </div>
-      </div>
-
-      {/* Layout Switching */}
-      <div className="train-layout">
-
-        {option === "BookTrainTickets" && (
-          <div>
-            <h2>Train Booking</h2>
-            <input type="text" placeholder="From Station" />
-            <input type="text" placeholder="To Station" />
-            <input type="date" />
-            <button>Search Trains</button>
-          </div>
-        )}
-
-        {option === "CheckPNRStatus" && (
-          <div>
-            <h2>Check PNR Status</h2>
-            <input type="text" placeholder="Enter PNR Number" />
-            <button>Check Status</button>
-          </div>
-        )}
-
-        {option === "LiveTrainStatus" && (
-          <div>
-            <h2>Live Train Status</h2>
-            <input type="text" placeholder="Enter Train Number" />
-            <button>Check Live Status</button>
-          </div>
-        )}
-
-      </div>
+      <FormControl>
+        <RadioGroup
+          row
+          aria-labelledby="demo-row-radio-buttons-group-label"
+          name="row-radio-buttons-group"
+          value={selectOption}
+          onChange={handleOption}
+        >
+          {displayRadioOptions()}
+        </RadioGroup>
+      </FormControl>
+      <div>{handleOptionLayout()} </div>
     </>
   );
 }

@@ -28,7 +28,7 @@ function ItemsCard() {
       <Tab icon={<HolidayVillageIcon />} label="Hotels" className='tab'/>
       <Tab icon={<BusinessIcon />} label="Villas & Homestays" className='tab'/>
       <Tab icon={<BeachAccessIcon />} label="Holiday Package" className='tab' />
-      <Tab icon={<SubwayIcon />} label="Trains" className='tab'/>
+      <Tab icon={<SubwayIcon />} label="Trains" className='tab'  />
       <Tab icon={<AirportShuttleIcon />} label="Buses" className='tab' />
       <Tab icon={<LocalTaxiIcon />} label="Cabs" className='tab'/>
       <Tab icon={<EmojiObjectsIcon />} label="Tours & Attractions" className='tab'/>

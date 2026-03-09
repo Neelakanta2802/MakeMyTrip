@@ -60,7 +60,7 @@ const flightsData = {
       
       <input placeholder="To"  value={to} onChange={handleTo} />
       
-      <input placeholder="Departure" onChange={handleDeparture} />
+      <input placeholder="Departure"  onChange={handleDeparture} />
       <input placeholder="Return" onChange={handleReturnTrip} />
       <input placeholder="Travellers & Class" onChange={handleTravelClass} />
     </div>
