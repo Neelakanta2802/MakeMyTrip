@@ -35,7 +35,7 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
-  const navItems = ["FirstItem", "Second Item", "Third Item"];
+  const navItems = ["FirstItem", "Second Item", "Third Item", "Fourth Item"];
 
   return (
     <AppBar position="static">
