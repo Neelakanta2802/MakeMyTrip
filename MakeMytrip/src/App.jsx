@@ -1,4 +1,5 @@
 import "./App.css";
+import DashBoard from "./Components/DashBoard/DashBoard";
 import Navbar from "./Components/Navbar/Navbar";
 import Button from "@mui/material/Button";
 import ItemsCard from "./Components/ItemsCard/ItemsCard";
@@ -14,7 +15,9 @@ function App() {
       <FlightsTripCard/>
       <BrowserRouter>
         <Routes>
-          <Route path="trainbook" element={<TrainBooking />} />
+          <Route path="/trainbook" element={<TrainBooking />} />
+          <Route path="/flighttrip" element={<FlightsTripCard />} />
+          <Route path="/dashboard" element={<DashBoard />} />
         </Routes>
       </BrowserRouter>
     </>
