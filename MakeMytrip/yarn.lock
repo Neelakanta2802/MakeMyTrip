@@ -416,12 +416,20 @@
   version "7.3.9"
   resolved "https://registry.npmjs.org/@mui/icons-material/-/icons-material-7.3.9.tgz"
   integrity sha512-BT+zPJXss8Hg/oEMRmHl17Q97bPACG4ufFSfGEdhiE96jOyR5Dz1ty7ZWt1fVGR0y1p+sSgEwQT/MNZQmoWDCw==
-"@mui/icons-material@^7.3.8":
-  version "7.3.8"
-  resolved "https://registry.npmjs.org/@mui/icons-material/-/icons-material-7.3.8.tgz"
-  integrity sha512-88sWg/UJc1X82OMO+ISR4E3P58I3BjFVg0qkmDu7OWlN8VijneZD3ylFA+ImxuPjMHW3SHosfSJYy1fztoz0fw==
   dependencies:
     "@babel/runtime" "^7.28.6"
+
+"@mui/lab@^7.0.1-beta.23":
+  version "7.0.1-beta.23"
+  resolved "https://registry.npmjs.org/@mui/lab/-/lab-7.0.1-beta.23.tgz"
+  integrity sha512-661LhBtL33DWeRk7DXXu4LvbHUmTRkoybiVgKkdLx6gA4Nbr1r6B1U+yZGcTm5GfY25nrtS083aoy3P0wuuJ3A==
+  dependencies:
+    "@babel/runtime" "^7.28.6"
+    "@mui/system" "^7.3.9"
+    "@mui/types" "^7.4.12"
+    "@mui/utils" "^7.3.9"
+    clsx "^2.1.1"
+    prop-types "^15.8.1"
 
 "@mui/material@^7.3.9":
   version "7.3.9"
@@ -813,11 +821,6 @@ dom-helpers@^5.0.1:
   dependencies:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
-
-dom@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/dom/-/dom-0.0.3.tgz"
-  integrity sha512-Uzda1zIAXO8JG2fm6IbJcdzBrRaC5Q308HTIjCXCQHh7ZVACJOeQzYYvd99plJ2/HUpZQk9IxNI/Y+QrO6poIQ==
 
 electron-to-chromium@^1.5.263:
   version "1.5.307"
@@ -1388,7 +1391,6 @@ punycode@^2.1.0:
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
 
-"react-dom@^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^19.2.0, "react-dom@>= 16.8.0", react-dom@>=16.6.0:
 "react-dom@^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^19.2.0, "react-dom@>= 16.8.0", react-dom@>=16.6.0, react-dom@>=18:
   version "19.2.4"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-19.2.4.tgz"
@@ -1446,8 +1448,7 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-"react@^17.0.0 || ^18.0.0 || ^19.0.0", react@^19.2.0, react@^19.2.4, "react@>= 16.8.0", react@>=16.6.0, react@>=16.8.0:
-"react@^17.0.0 || ^18.0.0 || ^19.0.0", react@^19.2.4, "react@>= 16.8.0", react@>=16.6.0, react@>=16.8.0, react@>=18:
+"react@^17.0.0 || ^18.0.0 || ^19.0.0", react@^19.2.0, react@^19.2.4, "react@>= 16.8.0", react@>=16.6.0, react@>=16.8.0, react@>=18:
   version "19.2.4"
   resolved "https://registry.npmjs.org/react/-/react-19.2.4.tgz"
   integrity sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ==
@@ -1665,11 +1666,6 @@ yaml@^1.10.0:
   version "1.10.2"
   resolved "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
-
-yaml@^2.4.2:
-  version "2.8.2"
-  resolved "https://registry.npmjs.org/yaml/-/yaml-2.8.2.tgz"
-  integrity sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==
 
 yocto-queue@^0.1.0:
   version "0.1.0"

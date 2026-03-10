@@ -15,10 +15,13 @@ import {
   Button,
   Paper,
 } from "@mui/material";
+import TrainOffers from "../TrainOffers/TrainOffers";
 
-export default function RowRadioButtonsGroup() {
+
+export default function TrainBooking() {
   const [selectOption, setSelectOption] = useState("BookTrainTickets");
-  
+  const [searchbutton, setSearchButton] = useState("Search");
+
   const handleOption = (e) => {
     setSelectOption(e.target.value);
   };
@@ -45,21 +48,33 @@ export default function RowRadioButtonsGroup() {
     if (selectOption === "BookTrainTickets") {
       return (
         <>
-          <div>Book Tarin Tickets coming</div>
+          <div>
+            <input type="text" placeholder="From" />
+            <input type="text" placeholder="to" />
+            <input type="date" name="" id="" />
+            <select name="" id="">
+              <option value="">Sleeper</option>
+              <option value="">Third Ac</option>
+              <option value="">Second AC</option>
+              <option value="">First AC</option>
+            </select>
+          </div>
         </>
       );
     }
     if (selectOption === "CheckPnrStatus") {
       return (
         <>
-          <div>Check PNR Status coming</div>
+          <input type="number" />
+          <button>Check PNR Status</button>
         </>
       );
     }
     if (selectOption === "LiveTrainStatus") {
       return (
         <>
-          <div>Live Train Status coming</div>
+          <input type="number" />
+          <button>Live Train Status</button>
         </>
       );
     }
@@ -81,7 +96,7 @@ export default function RowRadioButtonsGroup() {
 
   return (
     <>
-      <FormControl>
+      <FormControl className=".radio-group">
         <RadioGroup
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
@@ -93,6 +108,8 @@ export default function RowRadioButtonsGroup() {
         </RadioGroup>
       </FormControl>
       <div>{handleOptionLayout()} </div>
+      < TrainOffers />
+
     </>
   );
 }

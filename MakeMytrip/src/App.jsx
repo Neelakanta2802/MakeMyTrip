@@ -3,8 +3,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import Button from "@mui/material/Button";
 import ItemsCard from "./Components/ItemsCard/ItemsCard";
 import FlightsTripCard from "./Components/FlightsTripCard/FlightsTripCard";
-import TrainBooking from "./Components/TrainBooking/TrainBooking.jsx"
 import { BrowserRouter,Routes, Route } from "react-router-dom";
+import TrainBooking from "./Components/TrainsComponents/TrainBooking/TrainBooking.jsx"
 
 function App() {
   return (
@@ -12,7 +12,6 @@ function App() {
       <Navbar />
       <ItemsCard />
       <FlightsTripCard/>
-      {/* <TrainBooking/> */}
       <BrowserRouter>
         <Routes>
           <Route path="trainbook" element={<TrainBooking />} />
