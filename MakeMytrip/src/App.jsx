@@ -12,10 +12,7 @@ function App() {
     <>
       <Navbar />
       <ItemsCard />   
-      <ItemsCard />
-      {/* Button 
-      <Button variant="contained">Hello world </Button>
-      flights | Hotels | Railways | */}
+  
       <BrowserRouter>
         <Routes>
           <Route path="/trainbook" element={<TrainBooking />} />
