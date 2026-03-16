@@ -108,8 +108,8 @@ export default function TrainBooking() {
         </RadioGroup>
       </FormControl>
       <div>{handleOptionLayout()} </div>
+<button>Search</button>
       < TrainOffers />
-
     </>
   );
 }

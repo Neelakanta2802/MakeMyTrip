@@ -12,10 +12,11 @@ function App() {
     <>
       <Navbar />
       <ItemsCard />
-      <FlightsTripCard/>
+      <FlightsTripCard />
       <BrowserRouter>
         <Routes>
-          <Route path="/trainbook" element={<TrainBooking />} />
+          <Route path="/railways" element={<TrainBooking />} />
+
           <Route path="/flighttrip" element={<FlightsTripCard />} />
           <Route path="/dashboard" element={<DashBoard />} />
         </Routes>

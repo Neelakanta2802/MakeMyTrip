@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import Tab from "@mui/material/Tab";
+import TabPanel from "@mui/lab/TabPanel";
 import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import BusinessIcon from '@mui/icons-material/Business';
@@ -14,30 +15,70 @@ import SailingIcon from '@mui/icons-material/Sailing';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import './ItemsCard.css'
+import { useNavigate, NavLink } from 'react-router-dom';
+import TrainBooking from '../TrainsComponents/TrainBooking/TrainBooking';
+
 function ItemsCard() {
   const [value, setValue] = React.useState(0);
 
+  // const navigate = useNavigate()
+
+  // function navigateToTrains(){
+  //   navigate("/railways")
+  //   // <NavLink to={"/railways"}>h</NavLink>
+  // }
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <div className='tab-container'>
-    <Tabs value={value} onChange={handleChange} aria-label="icon label tabs example" className='items-card' >
-      <Tab icon={<LocalAirportIcon/>} label="Flights" className='tab'/>
-      <Tab icon={<HolidayVillageIcon />} label="Hotels" className='tab'/>
-      <Tab icon={<BusinessIcon />} label="Villas & Homestays" className='tab'/>
-      <Tab icon={<BeachAccessIcon />} label="Holiday Package" className='tab' />
-      <Tab icon={<SubwayIcon />} label="Trains" className='tab'  />
-      <Tab icon={<AirportShuttleIcon />} label="Buses" className='tab' />
-      <Tab icon={<LocalTaxiIcon />} label="Cabs" className='tab'/>
-      <Tab icon={<EmojiObjectsIcon />} label="Tours & Attractions" className='tab'/>
-      <Tab icon={<CollectionsBookmarkIcon />} label="Visa" className='tab'/>
-      <Tab icon={<SailingIcon />} label="Cruise" className='tab'/>
-      <Tab icon={<LocalAtmIcon />} label="Forex Card & Currency" className='tab' />
-      <Tab icon={<AirplaneTicketIcon />} label="Travel Insurance" className='tab'/>
-    </Tabs>
+    <div className="tab-container">
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="icon label tabs example"
+        className="items-card"
+      >
+        <Tab icon={<LocalAirportIcon />} label="Flights" className="tab" />
+        <Tab icon={<HolidayVillageIcon />} label="Hotels" className="tab" />
+        <Tab
+          icon={<BusinessIcon />}
+          label="Villas & Homestays"
+          className="tab"
+        />
+        <Tab
+          icon={<BeachAccessIcon />}
+          label="Holiday Package"
+          className="tab"
+        />
+        <Tab
+          icon={<SubwayIcon />}
+          onClick= {<TrainBooking/>}
+          label="Trains"
+          className="tab"
+        />
+        <Tab icon={<AirportShuttleIcon />} label="Buses" className="tab" />
+        <Tab icon={<LocalTaxiIcon />} label="Cabs" className="tab" />
+        <Tab
+          icon={<EmojiObjectsIcon />}
+          label="Tours & Attractions"
+          className="tab"
+        />
+        <Tab icon={<CollectionsBookmarkIcon />} label="Visa" className="tab" />
+        <Tab icon={<SailingIcon />} label="Cruise" className="tab" />
+        <Tab
+          icon={<LocalAtmIcon />}
+          label="Forex Card & Currency"
+          className="tab"
+        />
+        <Tab
+          icon={<AirplaneTicketIcon />}
+          label="Travel Insurance"
+          className="tab"
+        />
+      </Tabs>
     </div>
   );
 }
 export default ItemsCard;
+
