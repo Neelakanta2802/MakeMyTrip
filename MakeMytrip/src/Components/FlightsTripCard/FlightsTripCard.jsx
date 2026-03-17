@@ -18,15 +18,19 @@ function FlightsTripCard() {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group" 
+        value={tripType}
+         onChange={(e) => setTripType(e.target.value)}
       >
-        <FormControlLabel value="one way" control={<Radio />} label="One Way" />
-        <FormControlLabel value="round trip" control={<Radio />} label="Round Trip" />
-        <FormControlLabel value="multi city" control={<Radio />} label="Multi City" />      
+        <FormControlLabel value="oneway" control={<Radio />} label="One Way" />
+        <FormControlLabel value="roundtrip" control={<Radio />} label="Round Trip" />
+        <FormControlLabel value="multicity" control={<Radio />} label="Multi City" />      
       </RadioGroup>    
      </FormControl>     
       <p>Book International and Domestic Flights</p>
     </div>
           {tripType === "oneway" && <OneWayFlight />}
+          {tripType === "roundtrip" && <RoundTripFlight />}
+          {tripType === "multicity" && <MultiCityFlight />}
 
     </div>
   )
