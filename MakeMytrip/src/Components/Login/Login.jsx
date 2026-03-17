@@ -1,77 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { modalPopupOpen } from "../../App";
 
 function Login() {
-    const navigate = useNavigate();
-  const [loginResponse, setLoginResponse] = useState("");
-  const userDetails = {
-    email: "john@mail.com",
-    password: "changeme",
-  };
+  const navigate = useNavigate();
+  const { isOpen, setIsOpen } = useContext(modalPopupOpen);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  if (!isOpen) return null;
+
   async function handleLogin() {
     try {
       const response = await axios.post(
         "https://api.escuelajs.co/api/v1/auth/login",
-        userDetails,
+        { email, password }
       );
-      // response
-      // reject
-      // store state
-      setLoginResponse(response.data.access_token);
 
       localStorage.setItem("access_token", response.data.access_token);
-      navigate("/userprofile")
+
+      setIsOpen(false);
+      navigate("/userprofile");
+
     } catch (error) {
-      alert(error);
+      alert("Login failed");
     }
   }
+
   return (
-    <>
-      userName
-      <input type="text" />
-      password
-      <input type="text" />
-      <button onClick={handleLogin}>Login</button>
-    </>
+    <div className="modalOverlay">
+      <div className="modalBox">
+
+        <button className="closeBtn" onClick={() => setIsOpen(false)}>X</button>
+
+        <h2>Login</h2>
+
+        <label>Email</label>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <label>Password</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button onClick={handleLogin}>Login</button>
+
+      </div>
+    </div>
   );
 }
 
 export default Login;
-
-// LOGIN
-
-// localhost:5000/login
-
-// payload
-
-// {
-// username,
-// password
-// }
-
-// --------- access_token (generated) (eysdfsdfsdfsdfsdsdfsdsdf)
-
-// Funds
-
-// GET    localhost:5000/funds -- backend api
-
-// axios.get("localhost:5000/funds")
-
-// headers : {
-//     authrization: Bearer eysdfsdfsdfsdfsdsdfsdsdf
-// }
-
-// Holding
-// GET localhost:5000/holdings
-
-// headers : {
-//     authrization: Bearer eysdfsdfsdfsdfsdsdfsdsdf
-// }
-// Postions
-
-// GET localhost:5000/positions
-
-// headers : {
-//     authrization: Bearer eysdfsdfsdfsdfsdsdfsdsdf
-// }
