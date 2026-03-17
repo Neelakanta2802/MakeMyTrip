@@ -11,8 +11,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <ItemsCard />
-      <FlightsTripCard />
+      <ItemsCard />   
+  
       <BrowserRouter>
         <Routes>
           <Route path="/railways" element={<TrainBooking />} />
