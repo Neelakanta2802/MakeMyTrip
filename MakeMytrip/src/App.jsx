@@ -1,27 +1,50 @@
 import "./App.css";
 import DashBoard from "./Components/DashBoard/DashBoard";
 import Navbar from "./Components/Navbar/Navbar";
-import Button from "@mui/material/Button";
 import ItemsCard from "./Components/ItemsCard/ItemsCard";
 import FlightsTripCard from "./Components/FlightsTripCard/FlightsTripCard";
-import { BrowserRouter,Routes, Route } from "react-router-dom";
-import TrainBooking from "./Components/TrainsComponents/TrainBooking/TrainBooking.jsx"
+import TrainBooking from "./Components/TrainBooking/TrainBooking";
+import Login from "./Components/Login/Login";
+import UserProfile from "./Components/UserProfile/UserProfile";
+import ModalPopup from "./Components/ModalPopUp/ModalPopup";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createContext, useState } from "react";
+import { userNameContext } from "./Components/ContextAPI/userNameContext/userNameContext";
+
+export const passwordContext = createContext();
+export const modalPopupOpen = createContext();
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <ItemsCard />   
-  
-      <BrowserRouter>
-        <Routes>
-          <Route path="/railways" element={<TrainBooking />} />
+  const username = "Shruthi";
+  const password = "Gangadhar";
 
-          <Route path="/flighttrip" element={<FlightsTripCard />} />
-          <Route path="/dashboard" element={<DashBoard />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <modalPopupOpen.Provider value={{ isOpen, setIsOpen }}>
+      <passwordContext.Provider value={password}>
+        <userNameContext.Provider value={username}>
+          <BrowserRouter>
+
+            <Navbar />
+            <ItemsCard />
+
+            {/* GLOBAL MODAL */}
+            <ModalPopup />
+
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/userprofile" element={<UserProfile />} />
+              <Route path="/trainbook" element={<TrainBooking />} />
+              <Route path="/flighttrip" element={<FlightsTripCard />} />
+              <Route path="/dashboard" element={<DashBoard />} />
+            </Routes>
+
+          </BrowserRouter>
+        </userNameContext.Provider>
+      </passwordContext.Provider>
+    </modalPopupOpen.Provider>
   );
 }
 
