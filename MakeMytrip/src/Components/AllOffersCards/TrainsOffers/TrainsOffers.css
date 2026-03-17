@@ -1,0 +1,6 @@
+.offersflexcard{
+  display: flex;
+  gap: 2%;
+  margin: 1%;
+  flex-wrap: wrap;
+}
