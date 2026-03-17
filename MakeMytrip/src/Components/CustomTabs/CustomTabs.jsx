@@ -52,6 +52,8 @@ export default function CustomTabs() {
         <TabPanel value="3">{VillasComponent()}</TabPanel>
         <TabPanel value="4">Trains</TabPanel>
       </TabContext>
+
+      
     </Box>
   );
 }
