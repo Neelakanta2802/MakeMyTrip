@@ -115,10 +115,6 @@ function CustomToolbarFormat() {
       <input placeholder="Departure" onChange={handleDeparture} type="date" onClick={CustomToolbarFormat}/>
       
       <input placeholder="Return" onChange={handleReturnTrip} type="date"/>
-      <input placeholder="To"  value={to} onChange={handleTo} />
-      
-      <input placeholder="Departure"  onChange={handleDeparture} />
-      <input placeholder="Return" onChange={handleReturnTrip} />
       <input placeholder="Travellers & Class" onChange={handleTravelClass} />
     </div>
   );
