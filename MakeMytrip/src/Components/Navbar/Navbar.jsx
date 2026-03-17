@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { createContext, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,7 +16,9 @@ import AdbIcon from "@mui/icons-material/Adb";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
+
 function Navbar() {
+  const [userName, setUserName] = React.useState("Gangadhar");
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -118,11 +120,13 @@ function Navbar() {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-              {navItems}
+                  {navItems}
                 </Button>
               );
             })}
           </Box>
+
+          <Box>Username. {userName}</Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -160,3 +164,28 @@ function Navbar() {
   );
 }
 export default Navbar;
+
+// localstorage
+
+// state Management
+// useState
+// context api
+
+// const userName= "Gangadhar"
+// App
+// NavBar
+
+// Dashbaord ----  2 components --- tab1(Gangadhar) --- tab2
+
+// Trains
+
+// Buses ---- 3 components --- <tab1 userName={username}/> ----- <tab 2 userName={username}/> --- tab3(Gangadhar)
+
+// Flights
+
+// createContext()
+
+// provider userName={userName}
+
+// consume
+// import

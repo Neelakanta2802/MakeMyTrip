@@ -11,7 +11,6 @@
 //   const [selectTrainOption, setSelectTrainOption] = useState();
 // const navigate = useNavigate()
 
-
 //   return (
 //     <>
 //       <div className="radio-group">
@@ -49,15 +48,22 @@
 //   );
 // }
 
-
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import "./TrainBooking.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { passwordContext } from "../../App";
+import { userNameContext } from "../ContextAPI/userNameContext/userNameContext";
+
 
 export default function TrainBooking() {
+  const userName = useContext(userNameContext);
+
+  const password = useContext(passwordContext);
+
+  alert(password);
 
   const [option, setOption] = useState("BookTrainTickets");
 
@@ -103,7 +109,6 @@ export default function TrainBooking() {
 
       {/* Layout Switching */}
       <div className="train-layout">
-
         {option === "BookTrainTickets" && (
           <div>
             <h2>Train Booking</h2>
@@ -129,7 +134,6 @@ export default function TrainBooking() {
             <button>Check Live Status</button>
           </div>
         )}
-
       </div>
     </>
   );
