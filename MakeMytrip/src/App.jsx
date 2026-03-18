@@ -11,6 +11,7 @@ import ModalPopup from "./Components/ModalPopUp/ModalPopup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext, useState } from "react";
 import { userNameContext } from "./Components/ContextAPI/userNameContext/userNameContext";
+import Counter from "./Counter";
 
 export const passwordContext = createContext();
 export const modalPopupOpen = createContext();
@@ -27,18 +28,19 @@ function App() {
         <userNameContext.Provider value={username}>
           <BrowserRouter>
 
-            <Navbar />
-            <ItemsCard />
+            {/* <Navbar /> */}
+            {/* <ItemsCard /> */}
 
             {/* GLOBAL MODAL */}
-            <ModalPopup />
+            {/* <ModalPopup /> */}
 
             <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/userprofile" element={<UserProfile />} />
+              {/* <Route path="/" element={<Login />} /> */}
+               <Route path="/counter" element={<Counter />} />
+              {/* <Route path="/userprofile" element={<UserProfile />} />
               <Route path="/trainbook" element={<TrainBooking />} />
               <Route path="/flighttrip" element={<FlightsTripCard />} />
-              <Route path="/dashboard" element={<DashBoard />} />
+              <Route path="/dashboard" element={<DashBoard />} /> */}
             </Routes>
 
           </BrowserRouter>
