@@ -1,6 +1,8 @@
-// 3 steps 
+counter 0
 
-// Store global 
+1 2 3 4 
 
-// Slices ---- data logic create edit modify delete 
+global ga logic? 
 
+
+CounterSlice -- logic and reducer { add, edit, delete }
