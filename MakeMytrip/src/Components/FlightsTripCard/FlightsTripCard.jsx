@@ -7,7 +7,11 @@ import FormLabel from "@mui/material/FormLabel";
 import OneWayFlight from "../OneWayFlight/OneWayFlight";
 import "./FlightsTripCard.css";
 import { modalPopupOpen } from "../../App";
+import { useSelector } from "react-redux";
 function FlightsTripCard() {
+  const globalState = useSelector(
+    (globalState) => globalState.Login.userName
+  );
   const { isOpen, setIsOpen } = useContext(modalPopupOpen);
 
   const [tripType, setTripType] = useState("oneway");
@@ -41,6 +45,9 @@ function FlightsTripCard() {
           </RadioGroup>
         </FormControl>
         <p>Book International and Domestic Flights</p>
+        {/* ikkada naku exact girisha kavali ? */}
+
+        {globalState}
         <button onClick={() => setIsOpen(true)}>Login</button>
       </div>
       {tripType === "oneway" && <OneWayFlight />}

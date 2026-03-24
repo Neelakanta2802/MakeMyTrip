@@ -14,7 +14,7 @@ export default function Counter() {
   }
 
   function handleSub() {
-    dispatch(remove());
+    dispatch(sub());
   }
 
   function handleReset() {
@@ -35,3 +35,9 @@ export default function Counter() {
 // button add reset sub
 //   counterValue flights lo kavali <Flights props> wrong
 // step 2 Context api
+
+
+// 50%
+
+
+// MakeMytrip 

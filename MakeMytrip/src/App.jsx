@@ -27,22 +27,20 @@ function App() {
       <passwordContext.Provider value={password}>
         <userNameContext.Provider value={username}>
           <BrowserRouter>
-
-            {/* <Navbar /> */}
-            {/* <ItemsCard /> */}
+            <Navbar />
+            <ItemsCard />
 
             {/* GLOBAL MODAL */}
-            {/* <ModalPopup /> */}
+            <ModalPopup />
 
             <Routes>
-              {/* <Route path="/" element={<Login />} /> */}
-               <Route path="/counter" element={<Counter />} />
-              {/* <Route path="/userprofile" element={<UserProfile />} />
+              <Route path="/" element={<Login />} />
+              <Route path="/counter" element={<Counter />} />
+              <Route path="/userprofile" element={<UserProfile />} />
               <Route path="/trainbook" element={<TrainBooking />} />
               <Route path="/flighttrip" element={<FlightsTripCard />} />
-              <Route path="/dashboard" element={<DashBoard />} /> */}
+              <Route path="/dashboard" element={<DashBoard />} />
             </Routes>
-
           </BrowserRouter>
         </userNameContext.Provider>
       </passwordContext.Provider>

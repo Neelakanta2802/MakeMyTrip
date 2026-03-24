@@ -1,8 +1,39 @@
-counter 0
+// import { useSelector } from "react-redux"
 
-1 2 3 4 
-
-global ga logic? 
+// Counter.Jsx file 
 
 
-CounterSlice -- logic and reducer { add, edit, delete }
+// Countvalue = useState()
+
+// add 
+
+// global 
+
+// slices 
+
+// CounterSlice 
+
+// globalState
+// logic add sub reset 
+// count : 0
+
+// reducer:{
+//     add:(state)=>{
+// state.count += 1
+//     },
+//     sub :(state)=>{
+// state.count -= 1
+//     },
+//     reset : (state)=>{
+// state.count = 0
+//     }
+// }
+
+
+
+// export {add, sub, reset} = CounterSlice.actions
+
+
+// final state value componnet dispy chyeali 
+
+// useSelector((globalState)=>globalState.countValue)
