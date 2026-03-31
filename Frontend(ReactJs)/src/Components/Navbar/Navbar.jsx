@@ -12,12 +12,16 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import { useSelector } from "react-redux";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-
 function Navbar() {
+  const globalState = useSelector(
+    (globalState) => globalState.Login.userName,
+  );
+  console.log("globalState", globalState);
   const [userName, setUserName] = React.useState("Gangadhar");
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -126,7 +130,7 @@ function Navbar() {
             })}
           </Box>
 
-          <Box>Username. {userName}</Box>
+          <Box>Username {globalState}</Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
