@@ -65,12 +65,12 @@ app.use(express.json());
 
 // /
 // path address
-app.get("/", (req, res) => {
+app.get("/", (request, response) => {
   res.send("Hi Girisha");
 });
 
 
-app.get("/login", (req, response) => {
+app.get("/login", (request, response) => {
   response.send("Hi this is login endpoint");
 });
 // address port changes track 
