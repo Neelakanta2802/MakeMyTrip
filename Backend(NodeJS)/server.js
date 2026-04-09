@@ -70,8 +70,8 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/login", (req, res) => {
-  res.send("Hi this is login endpoint");
+app.get("/login", (req, response) => {
+  response.send("Hi this is login endpoint");
 });
 // address port changes track 
 
