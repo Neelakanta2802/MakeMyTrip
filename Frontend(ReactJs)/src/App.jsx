@@ -34,7 +34,7 @@ function App() {
             <ModalPopup />
 
             <Routes>
-              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/counter" element={<Counter />} />
               <Route path="/userprofile" element={<UserProfile />} />
               <Route path="/trainbook" element={<TrainBooking />} />

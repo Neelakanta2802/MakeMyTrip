@@ -7,13 +7,13 @@ import { userClickedLogin } from "../../Redux/Slices/LoginSlice";
 
 type userCredentials = {
   email: string;
-  password: Number;
+  password: string;
   handleLogin: () => void;
   handlePassWord: () => void;
 };
 
 type email = string;
-type password = string | Number;
+type password = string;
 
 function Login() {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function Login() {
   const { isOpen, setIsOpen } = useContext(modalPopupOpen);
 
   const [email, setEmail] = useState<email>("12345");
-  const [password, setPassword] = useState<password>(12345);
+  const [password, setPassword] = useState<password>("12345");
   const [access_token, setAccess_token] = useState("");
 
   if (!isOpen) return null;
@@ -31,7 +31,7 @@ function Login() {
   async function handleLogin(e: React.MouseEvent<HTMLButtonElement>) {
     try {
       const response = await axios.post(
-        "https://api.escuelajs.co/api/v1/auth/login",
+        "http://localhost:3000/login",
         { email, password },
       );
 
@@ -77,17 +77,3 @@ function Login() {
 export default Login;
 
 
-// local ga mana cimputer node js server create chesam
-
-// https://localhost:3000/api/v1/auth/login
-
-
-
-// global ga manish us global computer addfrsss 
-
-
-
-
-
-
-// https://api.escuelajs.co/api/v1/auth/login

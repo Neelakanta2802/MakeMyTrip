@@ -1,61 +1,7 @@
-// // client ---- server
 
-// // request --------->.  server
-
-// //               <-------------------response
-
-// // http://localhost:3000/api.
-
-// // username and password
-// // type ? JSON ? xml. ? html code ? formData
-// // {
-// //     "name":"shiva",
-// //     "password":12345
-// // }
-// //                                                              "user logged in succesfillly"
-// // req----------------> server.  database shiva 12345 register? true or                      false "wrong user credentials "
-
-// // hypertrasfeer protocol
-
-// // communicate ? http
-
-// // package install
-// // http methods ? get post put delete
-
-// // import http from 'http';
-
-// const http = require('http');
-
-// // req ? frontend
-// // res ? server
-
-// const server = http.createServer((req, res)=>{
-//     if(req.url=="https://www.makemytrip.com/" && req.method==="get"){
-//         nenu na database lo velli data fetch forntend resposne return chesta
-
-//         return res.end({
-//             message:"hi this is makemytrip first page response "
-//         })
-//     }
-
-//     // login api endpoint
-//  if(req.url=="https://www.makemytrip.com/login/" && req.method==="post"){
-// // process database username and passwod
-//         return res.end({
-//             message:"found username and password "
-//         })
-//     }
-
-// })
-
-// server express.js server
-
-// route('/login', (req, res)=>{
-//     res.send("hello")
-// })
-
-const http = require("http");
 const express = require("express");
+const http = require("http");
+const cors = require('cors');
 
 const app = express();
 
@@ -63,17 +9,72 @@ const app = express();
 
 app.use(express.json());
 
+const corsOptions = {
+  origin: '*', // Multiple origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
+app.use(cors(corsOptions));
+
+let users = [];
 // /
 // path address
-app.get("/", (request, response) => {
-  res.send("Hi Girisha");
+app.get("/", (req, res) => {
+  res.send({"message":"server Running Successfully"});
 });
 
 
-app.get("/login", (request, response) => {
-  response.send("Hi this is login endpoint");
+app.post("/signup", (req, res) => {
+  const{name,email,password} = req.body;
+  const existingUser = users.find((user) =>{
+    return user.email === email ;
+  });
+  if(existingUser) {
+    return res.status(400).json({message:"user Already exists"});
+  }
+ const newUser = {
+  name:name,
+  email:email,
+  password:password
+ }
+ users.push(newUser);
+  res.status(201).json({
+    message:"user created Succesffully"
+  });
 });
 // address port changes track 
+
+app.post("/login", (req,res) => {
+  const{email,password} = req.body;
+  const existingUser = users.find((user) => {
+    return user.email === email;
+  });
+  if(!existingUser){
+    return res.status(404).json({message:"Email dosn't exist"});
+  }
+  if(existingUser.password !== password){
+    return res.status(400).json({
+      message:"Invalid email or password"
+    });
+  }
+  res.status(200).json({
+    message:"Login successful"
+  });
+
+
+
+});
+app.get("/users",(req,res) => {
+  const safeUsers = users.map( (user) => {
+    return {
+      name:user.name,
+      email:user.email
+    };
+  });
+  return res.status(200).json({
+    users:safeUsers
+  });
+} )
 
 app.listen(3000,()=>{
       console.log("Server stared check now")
